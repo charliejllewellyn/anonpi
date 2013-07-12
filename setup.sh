@@ -33,7 +33,7 @@ apt-get autoclean
 useradd tor
 
 cd /usr/local/src
-curl -o https://www.torproject.org/dist/tor-0.2.3.25.tar.gz
+curl -O https://www.torproject.org/dist/tor-0.2.3.25.tar.gz
 tar zxf tor-0.2.3.25.tar.gz
 cd tor-0.2.3.25
 make clean
@@ -42,7 +42,7 @@ make distclean
 make
 make install
 
-if [ ! -d /usr/local/tor]
+if [ ! -d /usr/local/tor ]
   then
   mkdir /usr/local/tor
 fi
@@ -70,3 +70,4 @@ chmod +x /etc/network/if-pre-up.d/firewall
 
 (grep -v exit /etc/rc.local ; echo /usr/local/bin/tor; echo exit 0) > /etc/rc.local.new
 mv /etc/rc.local.new /etc/rc.local
+chmod 755 /etc/rc.local
