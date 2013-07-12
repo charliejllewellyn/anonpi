@@ -1,0 +1,9 @@
+User tor
+RunAsDaemon 1
+DataDirectory /usr/local/tor/data
+
+
+TransPort 0.0.0.0:4050
+DNSPort 0.0.0.0:53
+AutomapHostsOnResolve 1
+VirtualAddrNetwork 10.22.0.0/16
