@@ -24,7 +24,7 @@ apt-get update
 apt-get --yes upgrade
 
 # And add some that we will be using
-apt-get install --yes libevent-dev vim libssl-dev
+apt-get install --yes libevent-dev vim libssl-dev libnl-dev
 
 # And tidy up after ourselvs
 apt-get --purge --yes autoremove
@@ -34,13 +34,31 @@ useradd tor
 
 cd /usr/local/src
 curl -O https://www.torproject.org/dist/tor-0.2.3.25.tar.gz
+curl -O http://hostap.epitest.fi/releases/hostapd-2.0.tar.gz
 tar zxf tor-0.2.3.25.tar.gz
+tar zxf hostapd-2.0.tar.gz
+
+(
 cd tor-0.2.3.25
 make clean
 make distclean
 ./configure --disable-asciidoc
 make
 make install
+)
+
+(
+cd hostapd-2.0/hostapd
+cp 
+make clean
+make
+make install
+
+
+)
+
+
+
 
 if [ ! -d /usr/local/tor ]
   then
