@@ -5,6 +5,7 @@
 if [ ${UID} != 0 ]
 then
 	echo "You must be root"
+	exit 1
 fi
 
 # Now remove some software we won't be using
